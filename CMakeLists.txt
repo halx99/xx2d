@@ -172,7 +172,11 @@ file(GLOB SRCS	#GLOB_RECURSE
 )
 add_executable(examples ${SRCS})
 
-target_link_libraries(examples ${name} glfw imgui pugixml libzstd_static)
+
+add_subdirectory(anme)
+target_compile_definitions(anme PUBLIC ANME_USE_IMFME=1) # Use IMFMediaEngin which support both win32 and UWP apps, but return BGRA pixels
+
+target_link_libraries(examples ${name} glfw imgui pugixml libzstd_static anme)
 if(MSVC)	# vs2022+
 	target_link_libraries(examples ${CMAKE_CURRENT_SOURCE_DIR}/libvpx_prebuilt/lib/windows/vpxmd.lib)
 endif()

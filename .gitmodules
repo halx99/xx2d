@@ -19,3 +19,6 @@
 [submodule "libvpx_prebuilt"]
 	path = libvpx_prebuilt
 	url = https://github.com/denghe/libvpx_prebuilt.git
+[submodule "anme"]
+	path = anme
+	url = https://github.com/halx99/anme.git
